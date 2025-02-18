@@ -1,4 +1,3 @@
-```md
 # 🚀 Taskly – A CLI Task Manager
 
 **Taskly** is a lightweight, modular CLI-based tool for quick task management. It uses SQLite as a database and follows a command-based architecture for flexibility and easy expansion.
