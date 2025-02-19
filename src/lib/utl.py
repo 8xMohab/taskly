@@ -1,31 +1,45 @@
-def display_box(text):
-    # Define the width of the box
-    width = 50
+width = 64  # this is not dynamic fix it later
 
-    # Top border
+
+# used to display tasks list
+def display_tasks(tasks=[]):
+    # set the width equal to longest item in list
+    # or to the minimum width
+    task_length_offset = 4 + 4 + 2 + 4
+
+    print("=" * width)
+    print(f"||{' ' * (width - 4)}||")
+
+    for index, task in enumerate(tasks, start=1):
+        whiteSpace = width - (
+            len(f"{task[0]}") + len(f"{task[1]}") +
+            len(f"{index}") + task_length_offset
+        )
+        print(
+            f"||  {index}. {task[1]} id: {task[0]}{
+                ' ' * whiteSpace} ||"
+        )
+
+    print(f"||{' ' * (width - 4)}||")
     print("=" * width)
 
-    # Empty line with borders
-    print("||" + " " * (width - 4) + "||")
 
-    # Text line: add a space before the text and pad the rest
-    text_line = " " + text
-    text_line = text_line.ljust(width - 4)
-    print("||" + text_line + "||")
+# used to display a list of simple strings
+def display_box(text=[]):
+    # set the width equal to longest item in list
+    # or to the minimum width
 
-    # Another empty line with borders
-    print("||" + " " * (width - 4) + "||")
-
-    # Bottom border
     print("=" * width)
+    print(f"||{' ' * (width - 4)}||")
 
+    for item in text:
+        # There's a bug with the tabs offset that
+        # has been added at the end before the pipes
+        display_box_offset = 4 + 4
+        print(
+            f"||  {item}{
+                ' ' * (width - (len(item) + display_box_offset))}  ||"
+        )
 
-def display_tasks(tasks):
-    tasks_str = ""
-    if tasks:
-        for task in tasks:
-            tasks_str += f"  {task[0]}. {task[1]}\n"
-    else:
-        tasks_str = "  No tasks found. Add some!"
-
-    display_box(tasks_str.strip())
+    print(f"||{' ' * (width - 4)}||")
+    print("=" * width)

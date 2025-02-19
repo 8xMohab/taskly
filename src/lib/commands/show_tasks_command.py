@@ -9,7 +9,7 @@ class ShowTasksCommand(BaseCommand):
         if tasks:
             display_tasks(tasks)
         else:
-            display_box("  No tasks found. Add some!")
+            display_box(["No tasks found. Add some!"])
 
     def info(self):
         print("Command: tasks")

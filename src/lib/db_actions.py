@@ -67,3 +67,23 @@ def add_task(task: str) -> bool:
     except Exception as e:
         print("Error adding task:", e)
         return False
+
+
+def remove_task(task_id: int) -> list:
+    try:
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+
+        # Check if the task exists
+        cursor.execute("SELECT id FROM tasks WHERE id = ?", (task_id,))
+        if not cursor.fetchone():
+            conn.close()
+            return [False, f"Task with ID {task_id} not found."]
+
+        # Delete the task
+        cursor.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
+        conn.commit()
+        conn.close()
+        return [True, f"Task with ID {task_id} removed successfully."]
+    except Exception as e:
+        return [False, f"General error: {e}"]
