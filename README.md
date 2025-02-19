@@ -54,6 +54,11 @@ For example, to add a task:
 ```sh
 $ add Buy groceries
 ```
+To remove a task:
+
+```sh
+$ remove 4
+```
 
 To display all tasks:
 
@@ -73,6 +78,7 @@ $ exit
 | Command  | Description                          | Usage Example                     |
 |----------|--------------------------------------|-----------------------------------|
 | `add`    | Adds a new task                      | `add Buy groceries`               |
+| `remove` | Removes a task                       | `remove 4`                        |
 | `tasks`  | Displays the current task list       | `tasks`                           |
 | `help`   | Shows help for all commands          | `help` or `help add`              |
 | `exit`   | Exits the application                | `exit`                            |
