@@ -24,6 +24,7 @@ def main():
         if command_name == "help":
             help_command = HelpCommand()
             help_command.execute(args)
+        # Handle enter spammers like myself :)
         elif command_name == "":
             continue
         else:
@@ -37,3 +38,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
+
+
